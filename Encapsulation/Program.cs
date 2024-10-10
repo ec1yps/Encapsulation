@@ -15,10 +15,34 @@ namespace Encapsulation
 			//A.SetX(2000);
 			//A.SetY(3000);
 
-			A.X = 22;
-			A.Y = 33;
+			Console.Write("Введите координату X первой точки: ");
+			A.X = Convert.ToDouble(Console.ReadLine());
+			Console.Write("Введите координату Y первой точки: ");
+			A.Y = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine();
 
-			A.Print();
+            A.Print();
+            Console.WriteLine("Дистанция до точки A: " + A.Distance());
+            Console.WriteLine();
+
+			Point B = new Point();
+            Console.Write("Введите координату X второй точки: ");
+			B.X = Convert.ToDouble(Console.ReadLine());
+			Console.Write("Введите координату Y второй точки: ");
+			B.Y = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine();
+
+            B.Print();
+            Console.WriteLine("Дистанция до точки B: " + B.Distance());
+            Console.WriteLine();
+
+			Console.WriteLine("Дистанция от точки A до точки B: " + Distance(A.Distance(), B.Distance()));
+        }
+
+		static double Distance(double a, double b)
+		{
+			if (a > b) return a - b;
+			else return b - a;
 		}
 	}
 }

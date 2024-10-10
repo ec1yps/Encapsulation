@@ -56,6 +56,10 @@ namespace Encapsulation
 		public double X { get; set; }	// Автосвойства
 		public double Y { get; set; }
 
+		public double Distance()
+		{
+			return Math.Sqrt(X * X + Y * Y);
+		}
 		public void Print()
 		{
 			Console.WriteLine($"X = {X}\tY = {Y}");
