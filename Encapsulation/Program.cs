@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define DISTANCE
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,39 +11,32 @@ namespace Encapsulation
 	{
 		static void Main(string[] args)
 		{
+#if DISTANCE
 			Point A = new Point();
 			//Console.WriteLine($"X = {A.GetX()}\tY = {A.GetY()}");
 			//A.SetX(2000);
 			//A.SetY(3000);
 
-			Console.Write("Введите координату X первой точки: ");
-			A.X = Convert.ToDouble(Console.ReadLine());
-			Console.Write("Введите координату Y первой точки: ");
-			A.Y = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
+			A.X = 22;
+			A.Y = 33;
+			A.Print();
 
-            A.Print();
-            Console.WriteLine("Дистанция до точки A: " + A.Distance());
-            Console.WriteLine();
+			Point B = new Point(A);
+			B.Print();
 
-			Point B = new Point();
-            Console.Write("Введите координату X второй точки: ");
-			B.X = Convert.ToDouble(Console.ReadLine());
-			Console.Write("Введите координату Y второй точки: ");
-			B.Y = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
+			Point C;
+			C = new Point(B);
+			C.Print(); 
+#endif
 
-            B.Print();
-            Console.WriteLine("Дистанция до точки B: " + B.Distance());
-            Console.WriteLine();
-
-			Console.WriteLine("Дистанция от точки A до точки B: " + Distance(A.Distance(), B.Distance()));
-        }
-
-		static double Distance(double a, double b)
-		{
-			if (a > b) return a - b;
-			else return b - a;
+			Point A = new Point(2, 3);
+			Point B = new Point(7, 8);
+			Point C = new Point(A + B);
+			C.Print();
+			Point D = new Point(A - B);
+			D.Print();
+			for(Point i = new Point(); i.X<10;i++)
+				i.Print();
 		}
 	}
 }
